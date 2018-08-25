@@ -3,55 +3,55 @@
 extern keymap_config_t keymap_config;
 
 #define BASE   0
-#define SYMB   1
+#define META   1
 #define NUMPAD 2
-#define META   3
+#define ADJUST 3
 
-// Fillers to make layering more clear
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
 
-#define KC_M_ESC LT(MO(META), KC_ESC)
-#define KC_S_EISU LT(MO(SYMB),KC_LANG2)
-#define KC_S_KANA LT(MO(SYMB),KC_LANG1)
-#define KC_NUM TT(NUMPAD)
+#define KC_GGUI  GUI_T(KC_GRV)
+#define KC_A_ESC LT(MO(ADJUST), KC_ESC)
+#define KC_LOWR LT(MO(NUMPAD),KC_LANG2)
+#define KC_RASE LT(MO(NUMPAD),KC_LANG1)
+#define KC_MSPC LT(MO(META),KC_SPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* BASE
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | Tab  |   `  |   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |  -   |   \  |
+   * |A/ESC |  Tab |   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |  -   |   \  |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | Ctrl |   [  |   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  |   ;  |  '   | Enter|
+   * | GGui | Ctrl |   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  |   ;  |  '   | Enter|
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * | LSft |   ]  |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  |   ,  |   .  |   /  |  =   | RSft |
+   * | LAlt | LSFT |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  |   ,  |   .  |   /  |  =   | RSft |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | M/ESC| LGUI |HYPERR| LAlt |  NUM |S/Eisu|Space |   |Space |S/Kana| Bspc | LEFT | DOWN |  UP  | RIGHT|
+   * |  1   |   2  |   3  |   4  |   5  |LOWER |Space |   | Bapc | RAISE|   6  |   7  |   8  |  9   |  0   |
    * `------------------------------------------------'   `------------------------------------------------'
    */
-    [BASE] = LAYOUT( \
-    KC_TAB,  KC_GRV,    KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,KC_MINUS,  KC_BSLS, \
-    KC_RCTL, KC_LBRC,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,  KC_ENT,  \
-    KC_LSFT, KC_RBRC,   KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, KC_EQL,  KC_RSFT, \
-    KC_M_ESC,KC_LGUI,KC_HYPR,KC_LALT, KC_NUM, KC_S_EISU, KC_SPC, KC_SPC,KC_S_KANA, KC_BSPC, KC_LEFT, KC_DOWN,   KC_UP,  KC_RGHT  \
+  [BASE] = LAYOUT( \
+    KC_A_ESC, KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,KC_MINUS,  KC_BSLS, \
+    KC_GGUI, KC_RCTL,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,  KC_ENT,  \
+    KC_LALT, KC_LSFT,   KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, KC_EQL,  KC_RSFT, \
+    KC_1,       KC_2,   KC_3,   KC_4,    KC_5, KC_LOWR,  KC_MSPC, KC_BSPC, KC_RASE,  KC_6,    KC_7,     KC_8,   KC_9,     KC_0  \
   ),
 
-  /* SYMB
+  /* META
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |      |   `  |   1  |   2  |   3  |   4  |  5   |   |  6   |   7  |   8  |   9  |   0  |      |      |
+   * |      |      |      |      |      |      |      |   | Home | PgUp | PgDn |  End |      |      | PSCR |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |   \  |   !  |   @  |   #  |   $  |  %   |   |  ^   |   &  |   *  |      |      |      |      |
+   * |      |      |      |      |      |      |      |   | Left | Down | Up   | Right|  Del |      |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |   (  |   )  |   {  |  }   |   |  [   |  ]   |      |      |      |      |      |
+   * | F11  | F12  |      |      |      |      |      |   |      |      |      |      |      |      |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |   |      |      |      |      |      |      |      |
+   * | F1   |  F2  |  F3  |  F4  |  F5  |      |      |   |      |      |  F6  |  F7  |  F8  |  F9  | F10  |
    * `------------------------------------------------'   `------------------------------------------------'
    */
-  [SYMB] = LAYOUT( \
-    _______,  KC_GRV,   KC_1,    KC_2,    KC_3,      KC_4,      KC_5,    KC_6,     KC_7,     KC_8,    KC_9,    KC_0, _______, _______, \
-    _______, KC_BSLS, S(KC_1), S(KC_2), S(KC_3),   S(KC_4),   S(KC_5), S(KC_6),  S(KC_7), S(KC_8), _______, _______, _______, _______, \
-    _______, _______, _______, S(KC_9), S(KC_0),S(KC_LBRC),S(KC_RBRC), KC_LBRC,  KC_RBRC, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______,   _______,   _______, _______,  _______, _______, _______, _______, _______, _______  \
+  [META] = LAYOUT( \
+    _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_PGDN,  KC_END, _______, _______, KC_PSCR, \
+    _______, _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, KC_DEL,  _______, _______, \
+      KC_F12, KC_F12, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5, _______, _______, _______, _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10 \
    ),
   /* NUMPAD
    * ,------------------------------------------------.   ,------------------------------------------------.
@@ -70,22 +70,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, KC_LBRC,  KC_RBRC,     KC_0,    KC_1,    KC_2,    KC_3, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______, _______, _______, _______, _______  \
    ),
-  /* META
+  /* ADJUST
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |Reset | C+A+D|  F1  |  F2  |  F3  |  F4  |  F5  |   |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |
+   * |      | RESET|      |      |      |      |      |   |      |      |      |      |      |      |      |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * |      | C+A+I|      |      |      |      |      |   |      |      |      |      |      |      | PSCR |
+   * |      |      |      |      |      |      |      |   |      |      |      |      |      |      |      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |      |      |      |      |      |      |      |   |      |      |      |      |      |      |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |   |      |      |      | HOME |PGDWN | PGUP | END  |
+   * |      |      |      |      |      |      |      |   |      |      |      |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
-  [META] = LAYOUT( \
-    RESET,ALTG(KC_DEL),    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, KC_F11,   KC_F12, \
-    XXXXXXX,ALTG(KC_INS),XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_F12, XXXXXXX, KC_PSCR, \
-    XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-    _______, _______,    _______, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, KC_HOME,KC_PGDOWN,KC_PGUP,  KC_END \
+    [ADJUST] = LAYOUT( \
+    _______,  RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+    XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+    XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+    _______, _______,  _______, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX \
   )
 };
 
