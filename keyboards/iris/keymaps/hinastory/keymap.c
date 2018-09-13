@@ -19,17 +19,13 @@ enum custom_keycodes {
 #define KC_RST RESET
 #define KC_DBUG DEBUG
 
-#define KC_LORW LT(MO(_NUMPAD), KC_LANG2)
-#define KC_RASE KANA1
+#define KC_LORW KC_LANG2
+#define KC_RASE KC_LANG1
+#define KC_NUM MO(_NUMPAD)
 #define KC_MSPC LT(MO(_META), KC_SPC)
-#define KC_STAB GUI_T(KC_TAB)
-#define KC_SENT GUI_T(KC_ENT)
+#define KC_GGRV GUI_T(KC_GRV)
 #define KC_MAC MAGIC_UNSWAP_RALT_RGUI
 #define KC_WIN MAGIC_SWAP_RALT_RGUI
-#define KC_MBSP LT(MO(_META), KC_BSPC)
-#define KC_HGRV ALL_T(KC_GRV)
-#define KC_SLBC SFT_T(KC_LBRC)
-#define KC_SRBC SFT_T(KC_RBRC)
 #define KC_CAD ALTG(KC_DEL)
 #define KC_CAI ALTG(KC_INS)
 #define KC_AESC LT(MO(_ADJUST), KC_ESC)
@@ -47,15 +43,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     AESC, 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,BSLS,
+     AESC, 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  , EQL,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     STAB, Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,SENT,
+      TAB, Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     SLBC, Z  , X  , C  , V  , B  ,EQL,      MINS, N  , M  ,COMM,DOT ,SLSH,SRBC,
+     LALT, Z  , X  , C  , V  , B  ,LORW,     RASE, N  , M  ,COMM,DOT ,SLSH,BSLS,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LORW,MSPC,        MBSP,RASE,HGRV
+                       NUM,LSFT,MSPC,          BSPC,ENT,GGRV
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -86,6 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            ,    ,    ,             ,    ,
   //                  `----+----+----'        `----+----+----'
   ),
+
 
   [_ADJUST] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
