@@ -31,14 +31,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+---------------------------+------+------+------+------+------+------+------|
    * | Alt  |   Z  |   X  |   C  |   V  |   B  | MSpc |                    | Bksp |   N  |   M  |   ,  |   .  |   /  |   \  |
    * |-------------+------+------+------+------+------+------+------+------+------+------+------+------+------+-------------|
-   * | Esc  |  Gui |  Adj | RAISE|||||||| Shift| LSpc |      ||||||||      | Bksp |LEnter|||||||| Ins  | Del  |  `  |   =   |
+   * | Esc  |  Gui |  Adj | RAISE|||||||| Shift| LSpc |      ||||||||      | Bksp |LEnter||||||||  =   | Ins  |  Del |  `   |
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
   [_QWERTY] = LAYOUT( \
     KC_TAB,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,  KC_LBRC,                KC_RBRC , KC_Y,   KC_U,   KC_I,    KC_O,   KC_P,    KC_MINS, \
     KC_LCTL, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,  KC_LANG2,               KC_LANG1, KC_H,   KC_J,   KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
     KC_LALT, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,  KC_LSPC,                 KC_BSPC, KC_N,   KC_M,   KC_COMM, KC_DOT, KC_SLSH, KC_BSLS, \
-    KC_ESC, KC_LGUI, MO(_ADJUST),RAISE,   KC_LSFT,   KC_LSPC, KC_NO,        KC_NO, KC_BSPC, KC_LENT,    KC_INS,  KC_DEL, KC_GRV,  KC_EQL \
+    KC_ESC, KC_LGUI, MO(_ADJUST),RAISE,   KC_LSFT,   KC_LSPC, KC_NO,        KC_NO, KC_BSPC, KC_LENT,  KC_EQL,  KC_INS,  KC_DEL,  KC_GRV \
   ),
 
   /* Lower
