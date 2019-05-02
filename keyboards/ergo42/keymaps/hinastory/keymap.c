@@ -21,18 +21,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,------------------------------------------------.   ,------------------------------------------------.
    * |  Tab |   Q  |   W  |   E  |   R  |  T   |  [   |   |  ]   |   Y  |   U  |   I  |   O  |   P  |  -   |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | Ctrl |   A  |   S  |   D  |   F  |  G   |  =   |   |  `   |   H  |   J  |   K  |   L  |   ;  |  '   |
+   * | Ctrl |   A  |   S  |   D  |   F  |  G   | EISU |   | KANA |   H  |   J  |   K  |   L  |   ;  |  '   |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * | Alt  |   Z  |   X  |   C  |   V  |  B   | EISU |   | KANA |   N  |   M  |   ,  |   .  |   /  |  \   |
+   * | Alt  |   Z  |   X  |   C  |   V  |  B   | EISU |   |  =   |   N  |   M  |   ,  |   .  |   /  |  \   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * | Gui  | Esc  |  Ins |  Fn  | SYMB |Shift | MSpc |   | MBsp | Enter|  Gui | Ctrl | Shift| Del  |HYPER |
+   * | Gui  | Esc  |  Ins |  Fn  | SYMB |Shift | MSpc |   | MBsp | Enter|  Gui | Ctrl | Shift| Del  |  `   |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASE] = LAYOUT( \
     KC_TAB,  KC_Q,    KC_W,   KC_E,   KC_R,   KC_T, KC_LBRC,  KC_RBRC,  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_MINS, \
-    KC_LCTL, KC_A,    KC_S,   KC_D,   KC_F,   KC_G,  KC_EQL,  KC_GRV,   KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT, \
-    KC_LALT, KC_Z,    KC_X,   KC_C,   KC_V,   KC_B,KC_LANG2,  KC_LANG1,  KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_BSLS, \
-    KC_LGUI, KC_ESC,KC_INS, KC_ADJ, KC_SYMB,KC_LSFT,KC_MSPC,  KC_MBSP,KC_ENT, KC_LGUI, KC_LCTL, KC_RSFT, KC_DEL, KC_HYPR \
+    KC_LCTL, KC_A,    KC_S,   KC_D,   KC_F,   KC_G, KC_LANG2,  KC_LANG1,   KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT, \
+    KC_LALT, KC_Z,    KC_X,   KC_C,   KC_V,   KC_B, KC_LANG2,  KC_EQL,  KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_BSLS, \
+    KC_LGUI, KC_ESC,KC_INS, KC_ADJ, KC_SYMB,KC_LSFT,KC_MSPC,  KC_MBSP,KC_ENT, KC_LGUI, KC_LCTL, KC_RSFT, KC_DEL, KC_GRV \
   ),
 
   /* META
@@ -54,36 +54,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ),
   /* SYMBOL
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |      |      |      |      |      |      |   (  |   |   )  |   1  |   2  |   3  |   4  |   5  |      |
+   * |      |      |      |      |      |      |   (  |   |   )  |   7  |   8  |   9  |   0  |   @  |   $  |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |   |   *  |   6  |   7  |   8  |   9  |   0  |      |
+   * |      |      |      |      |      |      |      |   |   .  |   4  |   5  |   6  |   *  |   !  |   &  |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |   |   #  |   !  |   @  |   $  |   %  |   ^  |   &  |
+   * |      |      |      |      |      |      |      |   |   #  |   1  |   2  |   3  |   #  |   %  |   ^  |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |      |      |      |      |      |      |      |   |      |      |      |      |      |      |      |
    * `------------------------------------------------'   `-----------------------------------------+------'
    */
   [SYMBOL] = LAYOUT( \
-    _______, _______, _______, _______, _______, _______, KC_LPRN, KC_RPRN,     KC_1,   KC_2,  KC_3,   KC_4,  KC_5, XXXXXXX, \
-    _______, _______, _______, _______, _______, _______, _______, KC_ASTR,     KC_6,   KC_7,  KC_8,   KC_9,  KC_0, XXXXXXX, \
-    _______, _______, _______, _______, _______, _______, _______, KC_HASH,KC_EXLM, KC_AT, KC_DLR,KC_PERC, KC_CIRC, KC_AMPR,  \
+    _______, _______, _______, _______, _______, _______, KC_LPRN, KC_RPRN,     KC_7,     KC_8,    KC_9,    KC_0,  KC_AT,  KC_DLR, \
+    _______, _______, _______, _______, _______, _______, _______,  KC_DOT,     KC_4,     KC_5,    KC_6, KC_ASTR, KC_EXLM, KC_AMPR, \
+    _______, _______, _______, _______, _______, _______, _______, KC_HASH,     KC_1,     KC_2,    KC_3, KC_HASH, KC_PERC, KC_CIRC,  \
     _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______, _______, _______, _______, _______  \
    ),
   /* ADJUST
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * |      | RESET|      |      |      |      |      |   |      |  F1  |  F2  |  F3  |  F4  | F5   | F12  |
+   * |      | RESET|      |      |      |      |      |   |      |  F7  |  F8  |  F9  |  F10  | F11  | F12  |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |   |      |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
+   * |      |      |      |      |      |      |      |   |      |  F4  |  F5  |  F6  |      |      |      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |   |      |      |      |      |      |      |      |
+   * |      |      |      |      |      |      |      |   |      |  F1  |  F2  |  F3  |      |      |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |      |      |      |      |      |      |      |   |      |      |      |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
     [ADJUST] = LAYOUT( \
-    _______,  RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,   KC_F12, \
-    _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11, \
-    _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+    _______,  RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12, \
+    _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_F4,   KC_F5,   KC_F6, XXXXXXX, XXXXXXX, XXXXXXX, \
+    _______, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_F1,   KC_F2,   KC_F3, XXXXXXX, XXXXXXX, XXXXXXX, \
     _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
   )
 };
